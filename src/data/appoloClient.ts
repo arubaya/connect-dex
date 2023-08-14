@@ -1,11 +1,8 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+
+const ENDPOINT = process.env.REACT_APP_GRAPHQL_ENDPOINT;
 
 export const client = new ApolloClient({
-  uri: 'https://wpe-hiring.tokopedia.net/graphql',
+  uri: ENDPOINT,
   cache: new InMemoryCache(),
 });
