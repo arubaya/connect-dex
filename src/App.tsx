@@ -8,10 +8,11 @@ import { Box } from '@mui/material';
  * Local module import
  */
 import Router from './routes';
+import classNames from 'classnames';
 
 function App() {
   return (
-    <Box className='min-w-screen min-h-screen'>
+    <Box className={classNames('min-w-screen min-h-screen')}>
       <Router />
     </Box>
   );

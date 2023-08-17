@@ -28,7 +28,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={createTheme(theme('light'))}>
+      <ThemeProvider theme={createTheme(theme('dark'))}>
         <BrowserRouter>
           <CssBaseline />
           <ApolloProvider client={client}>

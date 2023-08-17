@@ -1,35 +1,35 @@
 const darkTheme = {
   primary: {
-    main: '#56718D',
+    main: '#4380b1',
     contrastText: '#fff',
   },
   secondary: {
-    main: '#3373BA',
+    main: '#3A668B',
     contrastText: '#fff',
   },
   success: {
-    main: '#34C672',
+    main: '#42946e',
     contrastText: '#fff',
   },
   warning: {
-    main: '#ED872E',
+    main: '#dfaf2a',
     contrastText: '#fff',
   },
   error: {
-    main: '#E85559',
+    main: '#b62d2b',
     contrastText: '#fff',
   },
   info: {
-    main: '#4FA9DD',
+    main: '#306ee8',
     contrastText: '#fff',
   },
   background: {
-    default: '#fff',
-    paper: '#fff',
+    default: '#040A0E',
+    paper: '#040A0E',
   },
   text: {
-    primary: '#6E6B7B',
-    secondary: '#B9B9C3',
+    primary: '#fff',
+    secondary: '#878593',
   },
 };
 
