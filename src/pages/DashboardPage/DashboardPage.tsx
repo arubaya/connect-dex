@@ -7,10 +7,13 @@ import ContactCardList, {
 } from '../../components/ContactCardList/ContactCardList';
 import LoadingProgress from '../../components/LoadingProgress/LoadingProgress';
 import useFavoriteContactStore from '../../stores/useFavoriteContactStore';
+import AddContactFloatingButton from '../../components/AddContactFloatingButton/AddContactFloatingButton';
 
 const DashboardPage = () => {
   const { favoriteContactIds } = useFavoriteContactStore();
-  const { data, loading } = useQuery<ContactListResponseData>(CONTACT_LIST);
+  const { data, loading } = useQuery<ContactListResponseData>(CONTACT_LIST, {
+    pollInterval: 1000,
+  });
 
   const contactFilter = (
     contactResponseData: ContactListResponseData | undefined,
@@ -46,7 +49,7 @@ const DashboardPage = () => {
   );
 
   return (
-    <Box className="flex flex-col w-full gap-3">
+    <Box className="flex flex-col w-full h-full gap-3">
       {loading ? (
         <LoadingProgress />
       ) : (
@@ -66,10 +69,11 @@ const DashboardPage = () => {
 
           <Box component="section">
             <Typography variant="caption" component="h5" color="text.secondary">
-              Your Contacts
+              My Contacts
             </Typography>
             <ContactCardList contactList={contacts} />
           </Box>
+          <AddContactFloatingButton />
         </>
       )}
     </Box>

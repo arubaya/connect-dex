@@ -2,6 +2,8 @@ import { Avatar, Box, ButtonBase, Typography } from '@mui/material';
 import React from 'react';
 import ContactCardMenuOption from '../ContactCardMenuOption/ContactCardMenuOption';
 import { NavLink } from 'react-router-dom';
+import { replacePath } from '../../utils/helper';
+import { DETAIL_CONTACT_PATH } from '../../constants/router';
 
 export interface ContactCardProps {
   id: number;
@@ -21,10 +23,12 @@ const ContactCard = ({
       <Box className="flex items-center justify-between w-full">
         <ButtonBase className="w-full px-3 py-5">
           <NavLink
-            to={`/detail/${id}`}
+            to={replacePath(DETAIL_CONTACT_PATH, {
+              contactId: id,
+            })}
             className="flex items-center flex-1 gap-4 no-underline text-inherit"
           >
-            <Avatar sx={{ backgroundColor: 'primary.main' }}></Avatar>
+            <Avatar sx={{ backgroundColor: 'text.secondary' }}></Avatar>
             <Box className="flex flex-col items-start max-w-[180px]">
               <Typography
                 id="contactName"

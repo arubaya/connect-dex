@@ -2,6 +2,8 @@ import { MenuRounded } from '@mui/icons-material';
 import { Box, IconButton } from '@mui/material';
 import React from 'react';
 import { APP_LOGO } from '../../constants/app';
+import { NavLink } from 'react-router-dom';
+import { DASHBOARD_PATH } from '../../constants/router';
 
 const Header = () => {
   return (
@@ -11,7 +13,12 @@ const Header = () => {
       sx={{ backgroundColor: 'background.default' }}
     >
       <Box className="flex items-center justify-between w-full h-14">
-        <img src={APP_LOGO} alt="ConnectDex" className="w-2/6 max-w-[200px]" />
+        <NavLink
+          to={DASHBOARD_PATH}
+          className="flex items-center justify-start no-underline text-inherit w-2/6 max-w-[200px]"
+        >
+          <img src={APP_LOGO} alt="ConnectDex" className="w-full" />
+        </NavLink>
         <IconButton size="small">
           <MenuRounded />
         </IconButton>

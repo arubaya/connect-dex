@@ -8,3 +8,4 @@
 // export { Home };
 
 export { default as DashboardPage } from '../pages/DashboardPage/DashboardPage';
+export { default as AddContactPage } from '../pages/AddContactPage/AddContactPage';

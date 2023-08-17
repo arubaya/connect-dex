@@ -1,2 +1,3 @@
-export const ROOT_PATH = '/';
-export const HOME_PATH = `${ROOT_PATH}dashboard`;
+export const DASHBOARD_PATH = '/';
+export const ADD_CONTACT_PATH = '/add-contact';
+export const DETAIL_CONTACT_PATH = '/detail-contact/:contactId';
