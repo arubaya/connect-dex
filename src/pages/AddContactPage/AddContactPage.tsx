@@ -164,12 +164,15 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
             oldPhoneNumber[0].number,
             newPhoneNumbers[0].number
           );
-        const { errorEditContactPhone: errorEditHome } = await editPhoneContact(
-          editedContactId,
-          oldPhoneNumber[1].number,
-          newPhoneNumbers[1].number
-        );
-        if (errorEditMobile || errorEditHome) {
+        if (newPhoneNumbers[1]) {
+          const { errorEditContactPhone: errorEditHome } =
+            await editPhoneContact(
+              editedContactId,
+              oldPhoneNumber[1].number,
+              newPhoneNumbers[1].number
+            );
+        }
+        if (errorEditMobile) {
           setOpenAlert({ open: true, message: EDIT_CONTACT_ERROR_MESSAGE });
         } else {
           navigate(DASHBOARD_PATH);
@@ -180,11 +183,13 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
           oldPhoneNumber[0].number,
           newPhoneNumbers[0].number
         );
-        const { errorAddPhoneToContact } = await savePhoneToContact(
-          editedContactId,
-          newPhoneNumbers[1].number
-        );
-        if (errorEditContactPhone || errorAddPhoneToContact) {
+        if (newPhoneNumbers[1]) {
+          const { errorAddPhoneToContact } = await savePhoneToContact(
+            editedContactId,
+            newPhoneNumbers[1].number
+          );
+        }
+        if (errorEditContactPhone) {
           setOpenAlert({ open: true, message: EDIT_CONTACT_ERROR_MESSAGE });
         } else {
           navigate(DASHBOARD_PATH);
@@ -192,9 +197,14 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
       } else {
         const { errorAddPhoneToContact: errorAddMobile } =
           await savePhoneToContact(editedContactId, newPhoneNumbers[0].number);
-        const { errorAddPhoneToContact: errorAddHome } =
-          await savePhoneToContact(editedContactId, newPhoneNumbers[1].number);
-        if (errorAddMobile && errorAddHome) {
+        if (newPhoneNumbers[1]) {
+          const { errorAddPhoneToContact: errorAddHome } =
+            await savePhoneToContact(
+              editedContactId,
+              newPhoneNumbers[1].number
+            );
+        }
+        if (errorAddMobile) {
           setOpenAlert({ open: true, message: EDIT_CONTACT_ERROR_MESSAGE });
         } else {
           navigate(DASHBOARD_PATH);
