@@ -21,7 +21,7 @@ const ContactCard = ({
   return (
     <Box id={`${id}`} className="w-full">
       <Box className="flex items-center justify-between w-full">
-        <ButtonBase className="w-full px-3 py-5">
+        <ButtonBase aria-label="Contact Card" className="w-full px-3 py-5">
           <NavLink
             to={replacePath(DETAIL_CONTACT_PATH, {
               contactId: id,

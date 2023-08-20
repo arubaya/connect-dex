@@ -213,16 +213,17 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
                   number: contactDetailData[key] as string,
                 };
               }
+              return undefined;
             })
             .filter((mapData) => mapData !== undefined) as { number: string }[])
         : [];
 
     if (!isFormError) {
       setIsLoading(true);
-      const phones = [
-        { number: contactData.mobilePhone.value },
-        { number: contactData.homePhone.value },
-      ];
+      const phones = [{ number: contactData.mobilePhone.value }];
+      if (contactData.homePhone.value !== '') {
+        phones.push({ number: contactData.homePhone.value });
+      }
       const reqBodyWithoutPhone: Pick<ContactData, 'first_name' | 'last_name'> =
         {
           first_name: contactData.firstName.value,
@@ -289,7 +290,7 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
     }
   };
   return (
-    <Box className="flex flex-col w-full h-full gap-10 py-4">
+    <Box className="flex flex-col w-full h-full gap-10">
       <Typography variant="h3">
         {isEdit
           ? `Edit Contact - ${
@@ -372,6 +373,7 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
         <Box className="flex items-center justify-end w-full gap-3 mt-4">
           <NavLink to={DASHBOARD_PATH} className="no-underline text-inherit">
             <Button
+              aria-label="Back to Dashboard"
               id="cancelAdd"
               startIcon={<CloseRounded />}
               variant="outlined"
@@ -381,6 +383,7 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
             </Button>
           </NavLink>
           <Button
+            aria-label="Submit Form"
             disabled={isLoading || (isEdit && contactDetailData === null)}
             id="saveContact"
             type="submit"

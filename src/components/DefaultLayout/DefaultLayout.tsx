@@ -10,7 +10,9 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <Box className="min-h-screen">
       <Header />
-      <Box className="px-3 mt-20 min-h-[calc(100vh_-_80px)]">{children}</Box>
+      <Box className="px-3 mt-20 min-h-[calc(100vh_-_80px)] pb-4">
+        {children}
+      </Box>
     </Box>
   );
 };

@@ -11,6 +11,7 @@ import {
 export default function Router() {
   return (
     <Routes>
+      <Route path="*" element={<Page.NotFoundPage />} />
       <Route
         path={DASHBOARD_PATH}
         element={

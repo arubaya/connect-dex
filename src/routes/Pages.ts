@@ -9,3 +9,4 @@
 
 export { default as DashboardPage } from '../pages/DashboardPage/DashboardPage';
 export { default as AddContactPage } from '../pages/AddContactPage/AddContactPage';
+export { default as NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';

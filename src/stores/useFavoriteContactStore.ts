@@ -3,12 +3,14 @@ import { LOCAL_STORAGE_NAME } from '../constants/app';
 
 interface FavoriteContactInitialState {
   favoriteContactIds: number[];
+  refetchContactList: boolean;
 }
 
 interface FavoriteContactAction {
   addContactToFavorite: (contactId: number) => void;
   isFavoritedContact: (contactId: number) => boolean;
   removeContactFromFavorite: (contactId: number) => void;
+  refetchList: () => void;
 }
 
 interface FavoriteContactStoreState
@@ -26,6 +28,9 @@ const addToLocalStorage = (ids: number[]) => {
 const useFavoriteContactStore = create<FavoriteContactStoreState>(
   (set, get) => ({
     favoriteContactIds: DEFAULT_VALUE_CONTACT_LIST,
+    refetchContactList: false,
+    refetchList: () =>
+      set((state) => ({ refetchContactList: !state.refetchContactList })),
     addContactToFavorite: (contactId: number) => {
       const { favoriteContactIds } = get();
       if (!favoriteContactIds.includes(contactId)) {

@@ -11,9 +11,26 @@ interface ContactDetailData extends ContactData {
   id: number;
 }
 
+interface DefaultContactListOrder {
+  order_by: {
+    first_name: 'asc' | 'dsc';
+  };
+}
+
 /**
  * Request Body
  */
+
+interface ContactListWithPaginationReqBody extends DefaultContactListOrder {
+  limit: number;
+  offset: number;
+}
+
+interface ContactListSearchReqBody extends DefaultContactListOrder {
+  where: {
+    _or: { [columnKey: 'first_name' | 'last_name']: { _like: string } }[];
+  };
+}
 
 interface DeleteContactReqBody {
   id: number;

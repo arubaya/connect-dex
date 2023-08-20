@@ -25,6 +25,7 @@ const ContactCardMenuOption = ({ id }: ContactCardMenuOptionProps) => {
     addContactToFavorite,
     removeContactFromFavorite,
     isFavoritedContact,
+    refetchList,
   } = useFavoriteContactStore();
 
   const [delete_contact_by_pk] = useMutation<any, DeleteContactReqBody>(
@@ -56,6 +57,7 @@ const ContactCardMenuOption = ({ id }: ContactCardMenuOptionProps) => {
         id,
       },
     });
+    refetchList();
     handleClose();
   };
 

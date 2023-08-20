@@ -18,7 +18,7 @@ export default function DialogHeader(props: DialogTitleProps) {
       {children}
       {onClose ? (
         <ButtonBase
-          aria-label="close"
+          aria-label="Close Drawer"
           onClick={onClose}
           sx={{
             position: 'absolute',
