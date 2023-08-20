@@ -86,7 +86,15 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
         // navigate(DASHBOARD_PATH);
       }
     }
-  }, [contactDetailData, detailLoading, navigate]);
+    return () => {
+      setContactData({
+        firstName: DEFAULT_CONTACT_VALUE,
+        lastName: DEFAULT_CONTACT_VALUE,
+        homePhone: DEFAULT_CONTACT_VALUE,
+        mobilePhone: DEFAULT_CONTACT_VALUE,
+      });
+    };
+  }, [contactDetailData, detailLoading, isEdit, navigate]);
 
   useEffect(() => {
     setIsFormError(
@@ -300,11 +308,11 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
             }`
           : 'Add Contact'}
       </Typography>
-      <Box className="flex items-center justify-center w-full">
+      <Box className="flex items-center justify-center w-full md:justify-start">
         <Avatar
           sx={{
-            width: 80,
-            height: 80,
+            width: { xs: 80, md: 100 },
+            height: { xs: 80, md: 100 },
             background:
               'linear-gradient(to right bottom, #487ca3, #3e7099, #34658f, #2a5a85, #204f7b)',
           }}
@@ -313,7 +321,7 @@ const AddContactPage = ({ isEdit }: AddContactPageProps) => {
       <Box
         onSubmit={handleOnsubmit}
         component="form"
-        className="flex flex-col w-full gap-4"
+        className="flex flex-col w-full gap-4 max-w-[600px]"
       >
         <TextField
           error={contactData.firstName.isError}

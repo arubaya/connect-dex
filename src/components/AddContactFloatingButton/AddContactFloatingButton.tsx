@@ -15,6 +15,7 @@ const AddContactFloatingButton = () => {
       color="primary"
       aria-label="add contact"
       className="fixed bottom-0 right-0 mb-12 mr-8"
+      sx={{ display: { xs: 'block', md: 'none' } }}
       onClick={handleNavigateToAdd}
     >
       <AddRounded />

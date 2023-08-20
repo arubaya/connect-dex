@@ -162,7 +162,7 @@ const DashboardPage = () => {
         <LoadingProgress />
       ) : (
         <>
-          <Box className="w-full my-4">
+          <Box className="w-full mb-4">
             <SearchbarTextField
               variant="outlined"
               dataLength={`${contactList.length}`}

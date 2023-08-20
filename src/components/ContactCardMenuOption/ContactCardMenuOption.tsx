@@ -64,7 +64,8 @@ const ContactCardMenuOption = ({ id }: ContactCardMenuOptionProps) => {
   return (
     <div>
       <IconButton
-        id="contactCardMenuOptionButton"
+        id={`contactCardMenuOptionButton-${id}`}
+        aria-label="Open contact card menu"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}

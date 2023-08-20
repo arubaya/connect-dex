@@ -11,3 +11,6 @@ export const DEFAULT_CONTACT_LIST_VARIABLES: ContactListWithPaginationReqBody =
     offset: 0,
     ...DEFAULT_CONTACT_LIST_ORDERED,
   };
+
+export const DEFAULT_DRAWER_WIDTH = 300;
+export const DEFAULT_HEADER_HEIGHT = 80;
