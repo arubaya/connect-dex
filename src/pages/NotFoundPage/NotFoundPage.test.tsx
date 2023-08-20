@@ -1,20 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import AddContactPage from './AddContactPage';
+import NotFoundPage from './NotFoundPage';
 import { MemoryRouter } from 'react-router';
 import { MockedProvider } from '@apollo/client/testing';
-import { ADD_CONTACT_PATH } from '../../constants/router';
 
 describe('Add Contcat Page', () => {
   it('Should show add contact page', () => {
     render(
       <MockedProvider>
-        <MemoryRouter initialEntries={[ADD_CONTACT_PATH]}>
-          <AddContactPage />
+        <MemoryRouter initialEntries={['/fewt44']}>
+          <NotFoundPage />
         </MemoryRouter>
       </MockedProvider>
     );
-    const addContactTitleText = screen.getByText('Add Contact');
-    expect(addContactTitleText).toBeInTheDocument();
+    const notFoundPageText = screen.getByText('Sorry, Page not found!');
+    expect(notFoundPageText).toBeInTheDocument();
   });
 });

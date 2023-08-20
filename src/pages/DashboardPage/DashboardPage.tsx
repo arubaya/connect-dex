@@ -157,7 +157,10 @@ const DashboardPage = () => {
   };
 
   return (
-    <Box className="flex flex-col w-full h-full gap-3">
+    <Box
+      id="dashboardPageContainer"
+      className="flex flex-col w-full h-full gap-3"
+    >
       {loadingDefaultContactList || loadingSearchedContactList ? (
         <LoadingProgress />
       ) : (
